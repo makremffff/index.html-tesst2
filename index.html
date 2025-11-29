@@ -7,7 +7,7 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght~400;700&display=swap'); 
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap'); 
 
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Vazirmatn', Arial, Helvetica, sans-serif;overflow:hidden;background: #0d0c1d;}
@@ -163,142 +163,125 @@
         .nav-button.withdraw-btn-nav:hover{box-shadow:0 6px 0 #991919,0 10px 15px rgba(0,0,0,.2)}
         .nav-button.withdraw-btn-nav:active{box-shadow:0 3px 0 #991919,0 5px 8px rgba(0,0,0,.15)}
 
-        /* ===== Task Screen - REVISED STYLING (High Fidelity) ===== */
+        /* ===== Task Screen - REDESIGNED STYLING ===== */
         .task-screen{
             display:flex;
             flex-direction:column;
             align-items:center;
-            justify-content: flex-start; /* Align content to the top */
-            padding-top: 50px; /* Add padding to the top */
+            justify-content: flex-start; 
+            padding-top: 50px; 
             padding-bottom: 120px; 
             overflow-y: auto;
-            background: #f0f4f8; /* Very light, professional background */
+            background: #ffffed; /* Light, paper-like background */
         }
         .task-header{ 
             text-align: center;
             margin-bottom: 30px;
-            width: 100%;
-            max-width: 320px;
+            width: 90%;
+            max-width: 350px;
         }
         .task-title{ 
              font-family: 'Vazirmatn', sans-serif; 
-             font-size:28px; /* Slightly larger title */
-             color:#2c3e50; /* Darker, more professional color */
-             font-weight:800; /* Extra bold */
-             text-shadow: 1px 1px 2px rgba(0,0,0,0.05); 
+             font-size:24px; 
+             color:#333; /* Dark pencil color */
+             font-weight:700; 
+             text-shadow: 1px 1px 0 #fff; 
+             border-bottom: 2px dashed #a0a0a0;
+             padding-bottom: 10px;
         }
-        /* task-description is removed from HTML, but style kept for safety */
-        .task-description{
-            font-size: 16px;
-            color: #555; 
-            margin-top: 5px;
-        }
-
-        .task-card-container {
-            width: 90%;
-            max-width: 350px; /* Wider card */
-            background: linear-gradient(180deg, #ffffff, #f7f9fc); /* Subtle gradient for depth */
-            padding: 25px;
-            border-radius: 25px; /* More rounded corners */
-            box-shadow: 0 10px 30px rgba(0,0,0,.15), inset 0 0 10px rgba(255, 255, 255, 0.5); /* Enhanced shadow and inner highlight */
-            border: 2px solid #e0e6ec; /* Cleaner border */
-            margin-bottom: 30px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .task-card-container::before {
-            content: '⭐';
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            font-size: 50px;
-            opacity: 0.1;
-            transform: rotate(15deg);
-        }
-
-        .task-item {
-            padding: 0;
-            border: none;
-            background: transparent;
-            box-shadow: none;
-            margin-bottom: 25px;
-            display: block; 
-        }
-        .task-info h4 {
-            color: #3498db; /* Professional blue */
-            margin-bottom: 10px;
-            font-size: 22px;
-            font-weight: 700;
-        }
-        .task-info p {
-            color: #7f8c8d; /* Subdued text color */
-            font-size: 15px;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-        .task-reward {
-            font-size: 28px; /* Larger reward text */
-            font-weight: 800;
-            color: #e67e22; /* Vivid orange */
-            font-family: 'Orbitron', sans-serif;
-            padding: 12px 20px;
-            background: #fff0e6;
-            border-radius: 15px;
-            display: inline-block;
-            margin-bottom: 25px;
-            border: 1px dashed #e67e22; /* Dashed border to look like a coupon */
-            letter-spacing: 1px;
-            box-shadow: 0 2px 5px rgba(0,0,0,.1);
-        }
-        .task-action-btn {
-            background:linear-gradient(145deg, #2ecc71, #27ae60); /* Success Green */
-            color:#fff;border:none;padding:15px 25px; /* Increased padding */
-            border-radius:12px;font-size:16px;font-weight:bold;cursor:pointer;
-            box-shadow:0 6px 0 #219d55;transition:all .1s ease; /* Deeper shadow for 3D effect */
-            text-transform: uppercase;
-            width: 100%; 
-            font-family: 'Vazirmatn', sans-serif;
-            margin-top: 15px;
-        }
-        .task-action-btn:disabled {
-            background: linear-gradient(145deg, #bdc3c7, #95a5a6);
-            box-shadow: 0 6px 0 #7f8c8d;
-            cursor: not-allowed;
-            color: #ecf0f1;
-        }
-        .task-action-btn:active{transform:translateY(3px);box-shadow:0 3px 0 #219d55}
         
-        .task-action-btn.completed {
-            background:linear-gradient(145deg, #95a5a6, #7f8c8d); 
-            box-shadow:0 6px 0 #6c7a89;
-            color: #ecf0f1;
-        }
-        .task-action-btn.completed:active{transform:translateY(3px);box-shadow:0 3px 0 #6c7a89}
-
-        /* Task Note style */
-        .task-screen .note{
-            margin-top: 25px;
-            background: #f8f8f8;
-            border-left: 5px solid #3498db;
-            padding: 15px;
-            border-radius: 10px;
-            font-size: 14px;
-            color: #555;
-            text-align: left;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        /* New Task Card Style based on user's input (Paper Style) */
+        .task-content-container {
+            width: 100%;
+            padding: 0 10px;
+            max-width: 400px;
         }
 
-        /* Added Back Button Style (Reusing back-btn style from withdraw/invite screens) */
+        .task-item-card {
+            background:#ffffff; /* White card */
+            margin:10px 0;
+            padding:18px;
+            border-radius:10px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            border: 1px solid #ddd; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .task-text-info {
+            color: #555; /* Slightly lighter text */
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        /* Button style from user's input (Pencil Style Action Button) */
+        .task-action-btn-new {
+            background:linear-gradient(145deg, #ffc107, #ff9800);
+            border:1px solid #cc9a00;
+            color:#fff;
+            padding:10px 20px;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:1em;
+            font-weight: bold;
+            min-width: 90px; 
+            transition: all 0.1s ease;
+            box-shadow: 0 4px 0 #cc9a00;
+            text-transform: uppercase;
+        }
+        .task-action-btn-new:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 5px 0 #cc9a00;
+        }
+        .task-action-btn-new:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #cc9a00;
+        }
+        .task-action-btn-new:disabled {
+            background:#ccc;
+            border-color:#aaa;
+            color:#666;
+            cursor:not-allowed;
+            box-shadow: 0 4px 0 #aaa;
+            transform: translateY(0);
+        }
+        
+        .task-action-btn-new.completed {
+            background:linear-gradient(145deg, #28a745, #1e7e34); /* Green for completed */
+            border-color: #1c6d32;
+            color: #fff;
+            cursor: default;
+            box-shadow: 0 4px 0 #1c6d32;
+        }
+        .task-action-btn-new.completed:disabled {
+             background:linear-gradient(145deg, #1e7e34, #1c6d32); /* Darker green when disabled (after completion) */
+             color: #ccc;
+             box-shadow: 0 4px 0 #1c6d32;
+        }
+        
+        /* Task Note style - REMOVED */
+        .task-screen .note{ display: none; }
+
+        /* Back Button Style - FIXED at bottom */
         .task-back-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             background:linear-gradient(145deg, #6c757d, #5a6268);
-            color:#fff;border:none;padding:12px 30px;border-radius:10px;font-size:15px;font-weight:bold;cursor:pointer;
-            box-shadow:0 5px 0 #4e555b;transition:all .1s ease;
+            color:#fff;border:none;padding:15px 40px; /* Larger padding */
+            border-radius:12px;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;
+            box-shadow:0 6px 0 #4e555b; /* Larger shadow */
+            transition:all .1s ease;
             width: 90%;
             max-width: 350px;
-            margin-bottom: 20px;
+            z-index: 1000; /* Ensure it's above other elements */
         }
-        .task-back-btn:active{transform:translateY(3px);box-shadow:0 2px 0 #4e555b}
+        .task-back-btn:active{transform:translateY(3px) translateX(-50%);box-shadow:0 3px 0 #4e555b}
         
         /* ===== Spin Screen ===== */
         .spin-screen{
@@ -558,9 +541,9 @@
         .custom-alert-box.error .alert-title { color: #dc3545; }
         .custom-alert-box.error .alert-icon::before { content: '🤦'; }
 
-        /* Specific styles for Warning/Info */
-        .custom-alert-box.warning .alert-title { color: #ffc107; }
-        .custom-alert-box.warning .alert-icon::before { content: '⚠️'; }
+        /* Specific styles for Warning/Info - Using Yellow/Brown for Pencil/Paper Theme */
+        .custom-alert-box.warning .alert-title { color: #8B4513; } /* Brown */
+        .custom-alert-box.warning .alert-icon::before { content: '✍️'; } /* Pencil/Writing Icon */
 
     </style>
 </head>
@@ -606,27 +589,21 @@
         </div>
 
     <div class="app-screen task-screen" id="taskScreen">
-        <div class="task-card-container">
-             <div class="task-header">
-                <h2 class="task-title">🔥 Daily Bonus & Tasks</h2>
-            </div>
-            <div class="task-item">
-                <div class="task-info">
-                    <h4>Join Telegram Channel & Claim Reward</h4>
-                    <p>Complete this one-time task to instantly receive a welcome bonus to your balance.</p>
-                </div>
-                <div class="task-reward">+50 SHIB</div>
-            </div>
-            <button class="task-action-btn" id="taskActionBtn" onclick="handleTaskAction()">
-                <span>Join & Claim Reward</span>
-            </button>
-            <div class="note">
-                💡 **Note:** Click the button to join the channel. Wait 5 seconds after joining, then click the button again to **'Claim Reward'**.
-            </div>
+        <div class="task-header">
+            <h2 class="task-title">Daily Task: Channel Join Reward</h2>
         </div>
-        <button class="task-back-btn" onclick="hideTask()">Back to Main</button>
         
+        <div class="task-content-container">
+            <div class="task-item-card">
+                <span class="task-text-info">Reward: 50 SHIB</span>
+                <button class="task-action-btn-new" id="taskActionBtn" onclick="handleTaskAction()">
+                    Join & Claim
+                </button>
+            </div>
         </div>
+
+        <button class="task-back-btn" onclick="hideTask()">Back to Main</button>
+    </div>
 
     <div class="app-screen spin-screen" id="spinScreen">
         <div id="wheelBox">
@@ -902,11 +879,11 @@ You will earn 5% of the revenue from every referral you bring through ads!
                     } else if (payload.type === 'completeTask' && errorMessage.includes('already completed')) {
                         alertTitle = 'Task Completed!';
                         alertType = 'warning';
-                        cleanMessage = 'You have already completed this task and received the reward.';
+                        cleanMessage = 'Reward already claimed. Task is complete.';
                     } else if (payload.type === 'completeTask' && errorMessage.includes('not joined')) {
                         alertTitle = 'Task Failed!';
                         alertType = 'error';
-                        cleanMessage = 'You must join the channel first to claim the reward.';
+                        cleanMessage = 'Membership not verified. Please ensure you joined the channel and try again.';
                     } else {
                         // General error handling (English)
                         alertTitle = 'Operation Failed!';
@@ -959,6 +936,7 @@ You will earn 5% of the revenue from every referral you bring through ads!
         let referralsCount = 0; 
         let isBanned = false; 
         let isProcessingTask = false; 
+        let countdownInterval = null; // New variable for the countdown interval
         
         const sectors = [5, 10, 15, 20, 5]; 
 
@@ -1048,29 +1026,32 @@ You will earn 5% of the revenue from every referral you bring through ads!
 
             document.getElementById('referralsCountDisplay').textContent = referralsCount.toLocaleString();
             
-            // Task Button State Update
+            // Task Button State Update 
             const taskBtn = document.getElementById('taskActionBtn');
             if (taskBtn) {
+                // Clear any existing interval text if UI update is called externally
+                if (!isProcessingTask && countdownInterval) {
+                    clearInterval(countdownInterval);
+                    countdownInterval = null;
+                }
+                
                 if (taskCompleted) {
                     // State: COMPLETED
                     taskBtn.disabled = true;
-                    taskBtn.textContent = 'Task Completed (50 SHIB Claimed)';
-                    taskBtn.classList.remove('task-action-btn');
+                    taskBtn.textContent = 'Claimed'; // Changed text to fit new style
                     taskBtn.classList.add('completed');
                 } else {
                     // State: NOT COMPLETED
                     taskBtn.disabled = isProcessingTask; // Respect the processing flag
+                    taskBtn.classList.remove('completed');
                     
                     if (isProcessingTask) {
-                        taskBtn.textContent = 'Processing...';
+                        // Text will be set by the countdown timer in claimTaskReward
                     } else if (taskActionState === 'CLAIM') {
-                        taskBtn.textContent = 'Click HERE to Claim Reward';
+                        taskBtn.textContent = 'Claim'; 
                     } else {
-                        taskBtn.textContent = 'Join & Claim Reward';
+                        taskBtn.textContent = 'Join'; 
                     }
-                    
-                    taskBtn.classList.remove('completed');
-                    taskBtn.classList.add('task-action-btn');
                 }
             }
 
@@ -1187,9 +1168,9 @@ You will earn 5% of the revenue from every referral you bring through ads!
 
         /* ===== Task Screen Functions (UPDATED LOGIC) ===== */
         
+        // ** MODIFIED: Now displays the actual task screen **
         function showTask(){
             if (isBanned) {
-                 // English translation of the Arabic alert message
                  showCustomAlert('Access Denied!', 'This account has been banned.', 'error');
                  return;
             }
@@ -1198,14 +1179,22 @@ You will earn 5% of the revenue from every referral you bring through ads!
             loadUserData();
         }
 
-        // NEW function to hide the task screen (used by the new back button)
         function hideTask(){
+            // Clear any running countdown when leaving the screen
+            if (countdownInterval) {
+                clearInterval(countdownInterval);
+                countdownInterval = null;
+                isProcessingTask = false;
+                taskActionState = taskCompleted ? 'COMPLETED' : 'JOIN_OR_CLAIM'; // Reset state
+                updateUI();
+            }
             document.getElementById('taskScreen').classList.remove('visible');
             mainScreen.classList.add('visible');
         }
 
         // Renamed and modified the old completeTask function
         async function claimTaskReward(){
+            const taskBtn = document.getElementById('taskActionBtn');
             if (isBanned) {
                  showCustomAlert('Access Denied!', 'This account has been banned.', 'error');
                  return;
@@ -1218,25 +1207,34 @@ You will earn 5% of the revenue from every referral you bring through ads!
             const countdownTime = 5; 
             let countdown = countdownTime; 
             
-            // Start the countdown alert (in a loop)
-            const timerInterval = setInterval(() => {
+            // Start the countdown on the button text
+            taskBtn.textContent = countdown;
+            
+            countdownInterval = setInterval(() => {
                 countdown--;
                 if (countdown >= 0) {
-                    showCustomAlert('Processing Reward...', `Waiting ${countdown} seconds to verify channel membership. Please do not close the app.`, 'warning');
+                    taskBtn.textContent = countdown;
+                    if(countdownTime - countdown > 1){ // Only show alert after 1 second delay
+                        // Show the processing alert (PENCIL STYLE)
+                         showCustomAlert('Verifying Membership...', `Please wait ${countdown} seconds for channel membership verification.`, 'warning');
+                    }
                 } else {
-                    clearInterval(timerInterval);
+                    // Stop the timer
+                    clearInterval(countdownInterval);
+                    countdownInterval = null;
+                    taskBtn.textContent = 'Verifying...';
+                    showCustomAlert('Verifying...', 'Contacting server to confirm membership and claim reward.', 'warning');
+
+                    // Proceed to server verification
+                    verifyAndClaim();
                 }
             }, 1000);
-
-            // Wait for the delay
-            await new Promise(resolve => setTimeout(resolve, countdownTime * 1000));
             
-            // Clear interval just in case it wasn't cleared by the countdown check
-            clearInterval(timerInterval);
-            
-            // Show final verification message
-            showCustomAlert('Verifying...', 'Contacting server to confirm membership and claim reward.', 'warning');
+        }
 
+        async function verifyAndClaim() {
+            const taskBtn = document.getElementById('taskActionBtn');
+            
             // 1. Request Action ID from the Server
             const actionId = await requestActionId('completeTask');
             if (!actionId) {
@@ -1270,14 +1268,17 @@ You will earn 5% of the revenue from every referral you bring through ads!
                 // If the server returns an error about completion or not joined, reset to first state
                 loadUserData();
                 taskActionState = 'JOIN_OR_CLAIM'; // Force restart the process
+                taskBtn.textContent = 'Join'; // Reset button text manually in case loadUserData fails
             }
-            updateUI(); 
+            updateUI();
         }
 
         // NEW function to handle the two-step action
         function handleTaskAction() {
+            const taskBtn = document.getElementById('taskActionBtn');
+            
             if (taskCompleted) {
-                showCustomAlert('Task Completed!', 'You have already completed this task and received the reward.', 'warning');
+                showCustomAlert('Task Completed!', 'Reward already claimed. Task is complete.', 'warning');
                 return;
             }
             
@@ -1287,6 +1288,8 @@ You will earn 5% of the revenue from every referral you bring through ads!
             
             if (taskActionState === 'JOIN_OR_CLAIM') {
                 // First click: Redirect to the channel
+                taskBtn.disabled = true; // Disable temporarily while opening link
+                taskBtn.textContent = 'Joining...';
                 
                 // Use Telegram WebApp function if available, otherwise fallback
                 if (typeof Telegram.WebApp.openTelegramLink === 'function') {
@@ -1296,11 +1299,15 @@ You will earn 5% of the revenue from every referral you bring through ads!
                 }
                 
                 // Update state and UI to prompt for the second click (claim)
-                taskActionState = 'CLAIM'; 
-                updateUI(); 
-                
-                // Show an instruction alert
-                showCustomAlert('Please Join Channel', 'You must join the channel first. Click the button again (after 5 seconds) to claim your reward.', 'warning');
+                // Re-enable and set state after a small delay to ensure link opens
+                setTimeout(() => {
+                    taskActionState = 'CLAIM'; 
+                    taskBtn.disabled = false;
+                    taskBtn.textContent = 'Claim'; 
+                    // Show an instruction alert (PENCIL STYLE)
+                    showCustomAlert('Action Required', 'Please ensure you joined the channel. Click the button again to start the reward verification.', 'warning');
+                }, 1500);
+
 
             } else if (taskActionState === 'CLAIM') {
                 // Second click: Start the 5-second delay and server verification
